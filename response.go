@@ -3,14 +3,14 @@ package iac
 type Response struct {
 	Messages []Message   `json:"messages,omitempty"`
 	Data     interface{} `json:"data,omitempty"`
-	Metadata Metadata    `json:"metadata,omitempty"`
+	Metadata *Metadata   `json:"metadata,omitempty"`
 }
 
 func (r *Response) SetData(data interface{}) {
 	r.Data = data
 }
 
-func (r *Response) SetMetadata(metadata Metadata) {
+func (r *Response) SetMetadata(metadata *Metadata) {
 	r.Metadata = metadata
 }
 
@@ -51,7 +51,7 @@ func WithData(data interface{}) ResponseMutator {
 	})
 }
 
-func WithMetadata(metadata Metadata) ResponseMutator {
+func WithMetadata(metadata *Metadata) ResponseMutator {
 	return ResponseMutatorFunc(func(resp *Response) {
 		resp.Metadata = metadata
 	})
