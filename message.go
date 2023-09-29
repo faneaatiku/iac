@@ -1,8 +1,8 @@
 package iac
 
 const (
-	TypeGeneric    = "generic"    //the error is referring to the entire request
-	TypeContextual = "contextual" //the error is referring to a certain part of the request that made it fail
+	TypeGeneric    = "generic"    //the message is referring to the entire request
+	TypeContextual = "contextual" //the message is referring to a certain part of the request that made it fail
 )
 
 // Message - represents an error on the response
@@ -27,7 +27,7 @@ const (
 type Message struct {
 	Type string `json:"type"`
 	Text string `json:"message"`
-	Path string `json:"path"`
+	Path string `json:"path,omitempty"`
 }
 
 func NewGenericMessage(text string) *Message {
