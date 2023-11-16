@@ -19,7 +19,7 @@ func TestNewResponseSetters(t *testing.T) {
 	require.Equal(t, resp.Data, data)
 	meta := NewMetadata(int64(1))
 	resp.SetMetadata(meta)
-	require.Equal(t, resp.Metadata, *meta)
+	require.Equal(t, resp.Metadata, meta)
 
 	msg := NewGenericMessage("test")
 	resp.AddMessage(*msg)
@@ -47,6 +47,6 @@ func TestBuildResponse(t *testing.T) {
 		WithContextualMsg("contextual", "path"),
 	)
 
-	require.Equal(t, resp.Metadata, *meta)
+	require.Equal(t, resp.Metadata, meta)
 	require.Contains(t, resp.Messages, *msg)
 }
