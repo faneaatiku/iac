@@ -5,7 +5,7 @@ A light library that provides the tools needed for microservices to talk to each
 It will provide: 
 - DTOs
 - basic authentication
-- and so on
+- basic HTTP client
 
   WIP
 

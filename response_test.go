@@ -18,7 +18,7 @@ func TestNewResponseSetters(t *testing.T) {
 	resp.SetData(data)
 	require.Equal(t, resp.Data, data)
 	meta := NewMetadata(int64(1))
-	resp.SetMetadata(*meta)
+	resp.SetMetadata(meta)
 	require.Equal(t, resp.Metadata, *meta)
 
 	msg := NewGenericMessage("test")
@@ -40,7 +40,7 @@ func TestBuildResponse(t *testing.T) {
 	msg2 := NewGenericMessage("testache")
 	resp := BuildResponse(
 		WithData(data),
-		WithMetadata(*meta),
+		WithMetadata(meta),
 		WithMessages([]Message{*msg}),
 		WithMsg(*msg2),
 		WithGenericMsg("generic"),
